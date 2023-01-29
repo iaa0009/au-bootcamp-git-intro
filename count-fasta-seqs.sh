@@ -63,7 +63,8 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-echo "$@"
+
+
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -93,4 +94,18 @@ echo "$@"
 # Good luck!
 #
 # ADD YOUR CODE BELOW:
+
+for file in "$@"
+
+ do
+
+#To count the number of sequences in each file
+   Seq1=`grep -c ">" $file`  
+   Name=`basename $file`   
+#To write the output in each file
+  echo $Seq1 $Name
+
+done
+      expr `grep -c ">" $file`        
+
 
