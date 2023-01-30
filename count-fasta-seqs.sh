@@ -95,7 +95,7 @@
 #
 # ADD YOUR CODE BELOW:
 
- $total_sum=0
+ total_sum=0
 
 for file in "$@"
 
