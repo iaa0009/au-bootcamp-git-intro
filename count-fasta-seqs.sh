@@ -1,4 +1,4 @@
-#!/bin/sh
+ #!/bin/sh
 
 # How this script should behave:
 #
@@ -95,17 +95,24 @@
 #
 # ADD YOUR CODE BELOW:
 
+ $total_sum=0
+
 for file in "$@"
 
  do
 
 #To count the number of sequences in each file
-   Seq1=`grep -c ">" $file`  
+   Seq1=`grep ">" $file | wc -l`
+#To get the name of the file
    Name=`basename $file`   
-#To write the output in each file
+  
   echo $Seq1 $Name
+   
+   
 
 done
-      expr `grep -c ">" $file`        
+        t=`grep ">" $@ |wc -l`
+           expr $total_sum + $t
+
 
 
