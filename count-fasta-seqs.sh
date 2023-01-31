@@ -115,4 +115,7 @@ done
            expr $total_sum + $t
 
 
-
+#Comment from C-Tracy: Good Job! This is giving you the desired output! My one comment is on how you call the total sum.
+#See if you can find a way to add the number of sequences of each file to the total_sum variable within the loop, 
+#and then just call the total sum variable at the end and not use another grep on all of the files provided. 
+#You are on the right track with your expr line at the end but see if you can make it so you add to it one file at a time w/in the loop!
