@@ -95,24 +95,32 @@
 #
 # ADD YOUR CODE BELOW:
 
- total_sum=0
 
-for file in "$@"
 
- do
+total=0
+
+array=( $@ )
+
+#for file in "$@"
+
+ for i in ${array[@]};
+
+
+ do 
 
 #To count the number of sequences in each file
-   Seq1=`grep ">" $file | wc -l`
+# Seq1=`grep ">" $file | wc -l` 
+
+ Seq1=`grep ">" $i | wc -l` 
+
+ let total+=$Seq1
+
 #To get the name of the file
-   Name=`basename $file`   
-  
+   Name=`basename $i`   
+
   echo $Seq1 $Name
-   
-   
+
 
 done
-        t=`grep ">" $@ |wc -l`
-           expr $total_sum + $t
-
-
-
+           #expr $total 
+ echo $total
