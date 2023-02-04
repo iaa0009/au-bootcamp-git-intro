@@ -97,22 +97,23 @@
 
 
 
+#set a variable called total as zero
 total=0
 
+#define the array
 array=( $@ )
 
-#for file in "$@"
-
+#For every file in the array 
  for i in ${array[@]};
 
 
  do 
 
 #To count the number of sequences in each file
-# Seq1=`grep ">" $file | wc -l` 
 
  Seq1=`grep ">" $i | wc -l` 
 
+#saving and increment all values of Seq1 into the total variable  
  let total+=$Seq1
 
 #To get the name of the file
@@ -121,8 +122,10 @@ array=( $@ )
   echo $Seq1 $Name
 
 
-done
-           expr $total 
+  done
+         
+#get the total by summation of all values
+     expr $total 
 
 
 #Comment from C-Tracy: Good Job! This is giving you the desired output! My one comment is on how you call the total sum.
