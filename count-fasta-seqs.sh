@@ -1,7 +1,7 @@
  #!/bin/sh
 
 # How this script should behave:
-#
+  #
 # INPUT:   Paths to one or more fasta sequence files
 #
 # OUTPUT:  For each file, it should write a line with the number of sequences
@@ -101,11 +101,13 @@
 total=0
 
 #define the array
-array=( $@ )
+#array=( $@ )
 
 #For every file in the array 
- for i in ${array[@]};
 
+# for i in ${array[@]};
+
+for i in $@
 
  do 
 
@@ -114,7 +116,9 @@ array=( $@ )
  Seq1=`grep ">" $i | wc -l` 
 
 #saving and increment all values of Seq1 into the total variable  
- let total+=$Seq1
+#let total+=$Seq1
+ total=$(expr $Seq1 + $total)
+
 
 #To get the name of the file
    Name=`basename $i`   
@@ -125,7 +129,7 @@ array=( $@ )
   done
          
 #get the total by summation of all values
-     expr $total 
+     echo $total 
 
 
 #Comment from C-Tracy: Good Job! This is giving you the desired output! My one comment is on how you call the total sum.
